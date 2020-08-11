@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #ffc100;
+}
+
+.form-control:focus {
+    border-color: #d3a8c4 !important;
+    box-shadow: 0 0 0 0.2rem #a8518a80 !important;
+}
+
+.btn.btn-primary {
+    background-color: #a8518a !important;
+    border: none;
+}
+
+.btn.btn-primary:focus {
+    border: none;
+    box-shadow: 0 0 0 0.2rem #a8518a80 !important;
+}
+
+.navbar-brand img {
+    width: 150px;
+}
+
+.text-secondary {
+    color: #666666;
+}
+
+.cards-flex {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    margin: 25px;
+}
+
+.card .card-body {
+    width: 300px;
+}
+
+.cards .card img {
+    width: 50%;
+}
+
+.cards .card .card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    width: 100%;
+    height: 300px;
+}
+
+.card .card-title {
+    text-align: center;
+}
+
+.preco {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.product-image {
+    width: 25px;
+}
+
+.carrinho .row {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    text-align: center;
+}
+
+.carrinho .row:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+footer {
+    display: flex;
+    font-family: Roboto, sans-serif;
+    background: #333;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 30px;
+}
+
+footer * {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+footer *:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer .logo-footer img {
+    width: 100px;
+}

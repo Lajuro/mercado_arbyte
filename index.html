@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Arbyte</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"
+        defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"
+        defer></script>
+    <script src="js/Pessoa.js" defer></script>
+    <script src="js/Mercado.js" defer></script>
+    <script src="js/Produto.js" defer></script>
+    <script src="js/Carrinho.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <!--
+        -> Fazer uma página web do mercado
+    -->
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"><img src="img/logo-arbyte.png" alt="Logo Arbyte"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Mercado <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Mostrar Carrinho</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container-lg mt-5">
+        <header>
+            <h1>Itens</h1>
+            <p class="text-secondary">Aqui está a lista de todos os itens hoje disponíveis para compra no nosso mercado.
+            </p>
+            <div class="cards-flex">
+                <div class="cards">
+
+                    <!-- Aqui serão listados todos os itens -->
+
+                </div>
+            </div>
+        </header>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Carrinho</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body carrinho">
+                    
+                    <!-- Aqui serão listados todos os itens adicionados no carrinho -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="coluna">
+            <ul>
+                <li>
+                    <a href="mailto:contato@arbyte.com.br" target="_blank">contato@arbyte.com.br</a>
+                </li>
+                <li>
+                    <a href="tel:+5511934854297" target="_blank">+ 55 (11) 93485-4297</a>
+                </li>
+                <li>
+                    <p>Rua Fidêncio Ramos, 100, 8º Andar, Vila Olímpia - São Paulo/SP</p>
+                </li>
+            </ul>
+        </div>
+        <div class="coluna">
+            <div class="logo-footer">
+                <div>
+                    <a href="/"><img src="https://www.arbyte.com.br/img/logo-footer.png" alt="Arbyte"></a>
+                </div>
+                <div>
+                    <p>© 2019 Arbyte</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
