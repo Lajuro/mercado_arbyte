@@ -6,7 +6,6 @@ class Carrinho {
     }
 
     adicionarNoCarrinho(produto, qtd) {
-
         qtd = !qtd || qtd < 1 ? 1 : qtd;
 
         for (let i = 0; i < qtd; i++) {

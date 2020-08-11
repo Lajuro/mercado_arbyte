@@ -58,7 +58,7 @@ function listaEstoque() {
         let valor = produto.value;
 
         criaCartao(id, imagem, nome, valor);
-    })
+    });
 }
 
 function inicializaBotoes() {
@@ -66,7 +66,7 @@ function inicializaBotoes() {
 
     botoes.forEach(botao => {
         botao.addEventListener('click', comprar);
-    })
+    });
 }
 
 function criaLinha(id, imagem, nome, valor, qtd) {
@@ -109,25 +109,18 @@ function criaLinha(id, imagem, nome, valor, qtd) {
 function adicionarNoCarrinho(produto, qtd) {
     let {id, name, value, imageURL} = produto;
     let totalDom = document.querySelector('.total');
-    
     qtd = qtd ? parseInt(qtd) : 1;
     
     carrinhoUsuario.adicionarNoCarrinho(produto, qtd);
-
-
     criaLinha(id, imageURL, name, value, qtd);
     totalDom.textContent = carrinhoUsuario.carrinhoTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-    
 }
 
 function comprar(e) {
     e.preventDefault();
     let id = parseInt(this.getAttribute('data-id'));
     let qtd = this.previousElementSibling.querySelector('input').value;
-    
     let produto = mercadoArbyte.buscaProduto(id);
-
-
 
     adicionarNoCarrinho(produto, qtd);
 }
@@ -158,18 +151,3 @@ let carrinhoUsuario = new Carrinho(novoUsuario, mercadoArbyte);
 
 listaEstoque();
 inicializaBotoes();
-
-
-// mercadoArbyte.listaProdutosEstoque();
-
-// // Compra produtos
-// carrinhoUsuario.adicionarNoCarrinho(maca);
-// carrinhoUsuario.adicionarNoCarrinho(uva, 2);
-// carrinhoUsuario.adicionarNoCarrinho(morango);
-
-// carrinhoUsuario.carrinho;
-
-// carrinhoUsuario.adicionarNoCarrinho(pera);
-// carrinhoUsuario.adicionarNoCarrinho(abacaxi);
-
-// carrinhoUsuario.carrinho;
