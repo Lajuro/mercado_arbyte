@@ -39,4 +39,8 @@ class Carrinho {
             console.log(`Até agora, o carrinho tem um total de ${total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`);
         }
     }
+
+    get carrinhoTotal() {
+        return this.itemsComprados.map(item => item.value).reduce((acc, current) => acc + current);
+    }
 }

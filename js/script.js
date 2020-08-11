@@ -69,60 +69,67 @@ function inicializaBotoes() {
     })
 }
 
-function criaLinha(id, imagem, nome, valor) {
-    // <div class="row">
-    //     <div class="col">
-    //         <img src="./img/apple.png" alt="" class="product-image">
-    //     </div>
-    //     <div class="col">
-    //         Maçã Gala
-    //     </div>
-    //     <div class="col">
-    //         R$ 0,25
-    //     </div>
-    // </div>
-    let row = document.createElement('div');
-    let colImage = document.createElement('div');
-    let image = document.createElement('img');
-    let colProduct = document.createElement('div');
-    let colValue = document.createElement('div');
-    let carrinho = document.querySelector('.carrinho');
+function criaLinha(id, imagem, nome, valor, qtd) {
+    for (let i = 0; i < qtd; ++i) {
+        let row = document.createElement('div');
+        let colQtd = document.createElement('div');
+        let colImage = document.createElement('div');
+        let image = document.createElement('img');
+        let colProduct = document.createElement('div');
+        let colValue = document.createElement('div');
+        let carrinho = document.querySelector('.carrinho');
 
-    row.classList.add('row');
+        row.classList.add('row');
 
-    image.src = imagem;
-    image.classList.add('product-image')
+        colQtd.textContent = carrinho.querySelectorAll('.row') ? carrinho.querySelectorAll('.row').length + 1 : 1;
+        colQtd.classList.add('col');
 
-    colImage.classList.add('col');
-    colImage.appendChild(image);
+        image.src = imagem;
+        image.classList.add('product-image')
 
-    colProduct.classList.add('col');
-    colProduct.textContent = nome;
+        colImage.classList.add('col');
+        colImage.appendChild(image);
 
-    colValue.classList.add('col');
-    colValue.textContent = valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        colProduct.classList.add('col');
+        colProduct.textContent = nome;
 
-    row.appendChild(colImage);
-    row.appendChild(colProduct);
-    row.appendChild(colValue);
+        colValue.classList.add('col');
+        colValue.textContent = valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
-    carrinho.appendChild(row);
+        row.appendChild(colQtd);
+        row.appendChild(colImage);
+        row.appendChild(colProduct);
+        row.appendChild(colValue);
+
+        carrinho.append(row);
+    }
 
 }
 
-function adicionarNoCarrinho(produto) {
+function adicionarNoCarrinho(produto, qtd) {
     let {id, name, value, imageURL} = produto;
+    let totalDom = document.querySelector('.total');
+    
+    qtd = qtd ? parseInt(qtd) : 1;
+    
+    carrinhoUsuario.adicionarNoCarrinho(produto, qtd);
 
-    criaLinha(id, imageURL, name, value);
+
+    criaLinha(id, imageURL, name, value, qtd);
+    totalDom.textContent = carrinhoUsuario.carrinhoTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    
 }
 
 function comprar(e) {
     e.preventDefault();
     let id = parseInt(this.getAttribute('data-id'));
+    let qtd = this.previousElementSibling.querySelector('input').value;
     
     let produto = mercadoArbyte.buscaProduto(id);
 
-    adicionarNoCarrinho(produto);
+
+
+    adicionarNoCarrinho(produto, qtd);
 }
 
 // Dados do dono e do mercado
