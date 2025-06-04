@@ -6,11 +6,8 @@ class Carrinho {
     }
 
     adicionarNoCarrinho(produto, qtd) {
-        qtd = !qtd || qtd < 1 ? 1 : qtd;
-
-        for (let i = 0; i < qtd; i++) {
-            this.itemsComprados.push(produto);
-        }
+        const quantidade = !qtd || qtd < 1 ? 1 : qtd;
+        this.itemsComprados.push({ produto, quantidade });
     }
 
     get carrinho() {
@@ -19,12 +16,13 @@ class Carrinho {
             console.warn('### Não foram adicionados produtos no carrinho ainda. ###');
         } else {
             let total = 0;
-            carrinho.forEach((produto, index, arr) => {
-                total += produto.value;
+            carrinho.forEach((item, index) => {
+                const { produto, quantidade } = item;
+                total += produto.value * quantidade;
                 console.log(`## Item ${index + 1} ##`);
-                console.log(`Produto: ${produto.name}`);
-                console.log(`Valor: ${produto.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`);
-                if (index !== arr.length - 1) {
+                console.log(`Produto: ${produto.name} - Qtd: ${quantidade}`);
+                console.log(`Valor: ${(produto.value * quantidade).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`);
+                if (index !== carrinho.length - 1) {
                     console.log('\n');
                 }
             });
@@ -40,6 +38,7 @@ class Carrinho {
     }
 
     get carrinhoTotal() {
-        return this.itemsComprados.reduce((acc, item) => acc + item.value, 0);
+        return this.itemsComprados.reduce((acc, item) => acc + item.produto.value * item.quantidade, 0);
     }
 }
+
