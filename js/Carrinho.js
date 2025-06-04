@@ -40,6 +40,6 @@ class Carrinho {
     }
 
     get carrinhoTotal() {
-        return this.itemsComprados.map(item => item.value).reduce((acc, current) => acc + current);
+        return this.itemsComprados.reduce((acc, item) => acc + item.value, 0);
     }
 }
