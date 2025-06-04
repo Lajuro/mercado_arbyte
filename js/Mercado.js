@@ -6,41 +6,31 @@ class Mercado {
     }
 
     adicionaEstoque(produto) {
-        try {
-            if (produto.name && produto.value) {
-                this.estoqueProdutos.push(produto);
-            } else {
-                throw 'Produto inválido';
-            }
-
-        } catch (error) {
-            console.error(error);
+        if (!(produto instanceof Produto)) {
+            throw new Error('Produto inválido');
         }
+
+        this.estoqueProdutos.push(produto);
     }
 
     listaProdutosEstoque() {
         if (this.estoqueProdutos.length === 0) {
             console.warn('### Não tem produtos cadastrados no estoque. ###');
-        } else {
-            this.estoqueProdutos.forEach((produto, index, arr) => {
-                console.log(`## Item ${index + 1} ##`);
-                console.log(`Produto: ${produto.name}`);
-                console.log(`Valor: ${produto.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`);
-                if (index !== arr.length - 1) {
-                    console.log('\n');
-                }
-            });
+            return;
         }
+
+        this.estoqueProdutos.forEach((produto, index) => {
+            console.log(`## Item ${index + 1} ##`);
+            console.log(`Produto: ${produto.name}`);
+            console.log(`Valor: ${produto.value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}`);
+            if (index !== this.estoqueProdutos.length - 1) {
+                console.log('\n');
+            }
+        });
     }
 
     buscaProduto(id) {
-        let result = false;
-        this.estoqueProdutos.forEach(produto => {
-            if (produto.id === id) {
-                result = produto;
-            }
-        });
-        return result;
+        return this.estoqueProdutos.find(produto => produto.id === id) || null;
     }
 
 }

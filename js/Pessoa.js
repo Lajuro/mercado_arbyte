@@ -1,5 +1,5 @@
 class Pessoa {
-    constructor (name, idade, saldoNoCartao) {
+    constructor(name, idade, saldoNoCartao) {
         this.name = name;
         this.idade = idade;
         this._saldoNoCartao = saldoNoCartao;
@@ -9,3 +9,4 @@ class Pessoa {
         return this._saldoNoCartao;
     }
 }
+
